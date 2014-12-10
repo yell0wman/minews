@@ -4,22 +4,15 @@ angular.module('miNewsApp').
        return {
            get: function(callback){
                 console.log('in get');
-//                 $http.jsonp("http://ajax.googleapis.com/ajax/services/feed/load", { params: { "v": "1.0", "q": "tsn.ua/rss" } })
-//                  $http.jsonp("https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q=tsn.ua/rss")
-//            .success(function(data) {
-//              console.log(data);
-//            })
-//            .error(function(data) {
-//                console.log("ERROR: " + data);
-//            });
-              function jsonp_callback(data) {
-    // returning from async callbacks is (generally) meaningless
-    console.log(data.found);
-}
-
-var url = "http://public-api.wordpress.com/rest/v1/sites/wtmpeachtest.wordpress.com/posts?callback=jsonp_callback";
-
-$http.jsonp(url);
+//                 $http.jsonp("http://ajax.googleapis.com/ajax/services/feed/find", { params: { "v": "1.0", "q": "tsn.ua/rss", "alt": "json-in-script", "callback": "JSON_CALLBACK" } })
+//                 $http.jsonp("http://ajax.googleapis.com/ajax/services/feed/find", { params: { "v": "1.0", "q": "censor.net.ua/includes/news_ru.xml", "alt": "json-in-script", "callback": "JSON_CALLBACK" } })
+                 $http.jsonp("http://ajax.googleapis.com/ajax/services/feed/find", { params: { "v": "1.0", "q": "habrahabr.ru/rss/hubs/", "alt": "json-in-script", "callback": "JSON_CALLBACK" } })
+            .success(function(data) {
+              console.log(data);
+            })
+            .error(function(data) {
+                console.log("ERROR: " + data);
+            });
            }
        };
     }]);
