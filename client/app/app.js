@@ -10,6 +10,10 @@ angular.module('miNewsApp', [
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
+      .when('/', {
+        templateUrl: '/views/test.html',
+        controller: 'TestCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
