@@ -2,11 +2,11 @@ angular.module('miNewsApp')
   .controller('MainCtrl', ['$scope', 'GetFeeds', function($scope, GetFeeds) {
       
       'use strict';
-      sourses = ['censor.net.ua/includes/news_ru.xml', 'habrahabr.ru/rss/hubs/', 'tsn.ua/rss'];
-      oneSiteFeeds = [];
+      var sourses = ['censor.net.ua/includes/news_ru.xml', 'habrahabr.ru/rss/hubs/', 'tsn.ua/rss'];
+      var oneSiteFeeds = [];
       
       // Request callback
-      setFeeds = function(data) {
+      var setFeeds = function(data) {
         if (data.responseData.entries) {
           data.responseData.entries.forEach(function(element, index, array) {
             oneSiteFeeds.push(element);
@@ -21,7 +21,7 @@ angular.module('miNewsApp')
       };
       
       // Mix array elements
-      shuffle = function(array) {
+      var shuffle = function(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
 
         // While there remain elements to shuffle...
@@ -42,12 +42,11 @@ angular.module('miNewsApp')
       
       // Set values for GetFeeds.get() parameters
       sourses.forEach(function(element, index, array) {
+        var prefix = '';
+        var googleApiSuffix = 'find';
         if (element.indexOf('.xml', -4)) {
           prefix = 'http://';
           googleApiSuffix = 'load';
-        } else {
-          prefix = '';
-          googleApiSuffix = 'find';
         }
         
       // Get news by rss
