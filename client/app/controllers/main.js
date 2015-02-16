@@ -1,7 +1,8 @@
 angular.module('miNewsApp')
   .controller('MainCtrl', ['$scope', 'GetFeeds', function($scope, GetFeeds) {
       
-      sourses = ["censor.net.ua/includes/news_ru.xml", "habrahabr.ru/rss/hubs/", "tsn.ua/rss"];
+      'use strict';
+      sourses = ['censor.net.ua/includes/news_ru.xml', 'habrahabr.ru/rss/hubs/', 'tsn.ua/rss'];
       oneSiteFeeds = [];
       
       // Request callback
