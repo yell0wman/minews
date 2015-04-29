@@ -7,6 +7,4 @@ module.exports = {
   mongo: {
     uri: 'mongodb://localhost/minews-dev'
   },
-
-  seedDB: true
 };
